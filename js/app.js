@@ -7,3 +7,16 @@ var config = {
   messagingSenderId: "817439651469"
 };
 firebase.initializeApp(config);
+
+angular.module('App', [])
+.controller('MainController', ['$scope', function ($scope) {
+  $scope.tweets = [{
+        "content" : "hello",
+        "provider_id" : 1
+      },
+      {
+        "content" : "aaaa",
+        "provider_id" : 1
+      }
+    ];
+}])

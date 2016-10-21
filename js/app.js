@@ -10,13 +10,12 @@ firebase.initializeApp(config);
 
 angular.module('App', [])
 .controller('MainController', ['$scope', function ($scope) {
-  $scope.tweets = [{
-        "content" : "hello",
-        "provider_id" : 1
-      },
-      {
-        "content" : "aaaa",
-        "provider_id" : 1
-      }
-    ];
+  var tweet_database = firebase.database()
+  tweet_database.ref('tweet/' + 'tweet006').push({
+    content: "test",
+    provider_id: 1
+  });
+  tweet_database.ref('tweet/' + 'tweet006').on("value", function(datas) {
+    console.log(datas)
+  });
 }])
